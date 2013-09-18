@@ -1,0 +1,26 @@
+{
+    "name": "nodesail",
+    "version": "0.0.1",
+    "description": "a Sails application",
+    "dependencies": {
+        "sails": "0.9.4",
+        "grunt": "0.4.1",
+        "ejs": "0.8.4",
+        "optimist": "0.3.4",
+        "sails-mongo": "0.9.x"
+    },
+    "scripts": {
+        "start": "node app.js",
+        "debug": "node debug app.js"
+    },
+    "engines": {
+      "node": "0.8.x"
+    },
+    "main": "app.js",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com:cfletcher1856/nodesail.git"
+    },
+    "author": "Colin Fletcher <cfletcher1856@gmail.com>",
+    "license": "MIT"
+}

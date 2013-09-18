@@ -1,0 +1,298 @@
+// Mixins
+.box-shadow(@shadow){
+    -webkit-box-shadow: @shadow;
+    -moz-box-shadow: @shadow;
+    box-shadow: @shadow;
+}
+
+.text-shadow(@shadow){
+    -webkit-text-shadow: @shadow;
+    -moz-text-shadow: @shadow;
+    text-shadow: @shadow;
+}
+
+.vertical-gradient(@startColor, @endColor){
+    background-color: mix(@startColor, @endColor, 60%);
+    background-image: -moz-linear-gradient(top, @startColor, @endColor);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), to(@endColor));
+    background-image: -webkit-linear-gradient(top, @startColor, @endColor);
+    background-image: -o-linear-gradient(top, @startColor, @endColor);
+    background-image: linear-gradient(to bottom, @startColor, @endColor);
+    background-repeat: repeat-x;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@startColor),argb(@endColor))); // IE9 and down
+}
+
+
+
+body{
+    position: relative;
+    background-image: url('/images/background.png');
+}
+
+.container > .content{
+    background: #fff;
+    padding-top: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    .box-shadow(0 0 20px rgba(0,0,0,0.1));
+}
+
+a{
+    color: #08C;
+    &:hover{
+        color: #005580;
+    }
+}
+
+.intro-slogan{
+    font-family: "squada-one", serif;
+    font-weight: normal;
+    position: relative;
+    font-size: 5em;
+    line-height: 1em;
+    margin-top: 30px;
+    margin-bottom: 60px;
+    margin-left: 30px;
+    padding: 60px;
+    margin-right: -45px;
+    text-transform: uppercase;
+    color: #fff;
+    .text-shadow(3px 3px 0 rgba(0,0,0,0.5));
+
+    &:after{
+        position: absolute;
+        bottom: -30px;
+        right: 0;
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-right: 30px solid transparent;
+        border-top: 30px solid #753C07;
+    }
+}
+
+.css3-gradient{
+    .vertical-gradient(#d1b683, #cdb380);
+}
+
+.css3-gradient-2{
+    .vertical-gradient(#036564, #025154);
+}
+
+.vcard-wrap{
+    margin-left: 30px;
+    .box-shadow(0px 0px 3px rgba(0,0,0,0.2));
+    background: #eee;
+    margin-bottom: 40px;
+    padding-top: 20px;
+}
+
+.vcard{
+    .vcard-photo{
+        margin: 0 20px;
+        padding: 10px;
+        background: #fff;
+        .box-shadow(0px 0px 3px rgba(0,0,0,0.2));
+
+        img{
+            width: 100%;
+        }
+    }
+
+    .vcard-bio{
+        padding: 30px;
+        padding-top: 0;
+
+        .vcard-name{
+            margin-bottom: 0;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .vcard-info{
+            i{
+                margin-right: 10px;
+                width: 10px;
+                text-align: center;
+            }
+        }
+
+        hr{
+            margin: 20x 0;
+            border: 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #fff;
+        }
+    }
+}
+
+.main-wrap{
+    .section{
+        padding: 0 60px 40px 30px;
+
+        h3{
+            padding-top: 10px !important;
+            position: relative;
+            color: #fff;
+            .text-shadow(2px 2px 0 rgba(0,0,0,0.5));
+            padding: 5px 0;
+            padding-left: 15px;
+            margin-bottom: 40px;
+            margin-right: -75px;
+            font-family: "bebas-neue", serif;
+            font-weight: normal;
+            letter-spacing: 2px;
+            line-height: 40px;
+
+            i{
+                margin-right: 15px;
+                font-size: 0.8em;
+                font-weight: 100;
+            }
+
+            &:after{
+                position: absolute;
+                bottom: -15px;
+                right: 0;
+                content: "";
+                display: block;
+                width: 0;
+                height: 0;
+                border-right: 15px solid transparent;
+                border-top: 15px solid #003063;
+            }
+        }
+
+        hr{
+            margin: 40px 0;
+        }
+    }
+
+    .section-education, .section-work{
+        .section-education-list, .section-work-list{
+            h4{
+                margin-top: 0;
+
+                i{
+                    margin-right: 10px;
+                }
+
+                small{
+                    font-style: italic; font-size: 0.6em;
+                }
+            }
+
+            .education-item, .work-item{
+                margin-bottom: 40px;
+                font-size: 0.9em;
+            }
+        }
+    }
+
+    .section-portfolio{
+        .section-portfolio-row-wrap{
+            .portfolio-item-thumbnail{
+                margin-bottom: 20px;
+
+                .portfolio-item-thumbnail-wrap{
+                    padding: 10px;
+                    background: #fff;
+                    .box-shadow(0px 0px 3px rgba(0,0,0,0.2));
+
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.section-first{
+    h3{
+        margin-top: 0;
+    }
+
+    hr{
+        background: transparent;
+        border: 1px solid #fff;
+    }
+}
+
+.footer{
+    .row{
+        text-align: right;
+        border-top: 1px solid #eee;
+    }
+
+    p{
+        margin: 20px 30px;
+        font-style: italic;
+        color: #6c6c6c;
+    }
+}
+
+@media (max-width: 767px){
+
+}
+
+@media (max-width: 767px){
+    .vcard-wrap{
+        margin-left: 0;
+    }
+    .intro-slogan{
+        padding: 30px;
+        margin-left: 20px;
+        margin-right: -10px;
+        font-size: 4em;
+
+        &:after{
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            border-right: 10px
+            solid transparent;
+            border-top: 10px solid #303D36;
+        }
+    }
+    .main-wrap{
+        .section{
+            padding: 0 30px 40px 30px;
+
+            h3:after{
+                border-top: 10px solid #012B2D;
+            }
+        }
+
+        h3{
+            margin-right: -40px;
+            margin-left: 0;
+            text-align: center;
+
+            &:after{
+                position: absolute;
+                bottom: -10px;
+                right: 0;
+                content: "";
+                display: block;
+                width: 0;
+                height: 0;
+                border-right: 10px solid transparent;
+                border-top: 10px solid #3C3542;
+            }
+
+            i{
+                margin-left: -40px;
+            }
+        }
+    }
+
+    .intro-slogan:after{
+        border-top: 10px solid #96805E;
+    }
+}
